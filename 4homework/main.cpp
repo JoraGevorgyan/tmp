@@ -6,8 +6,8 @@ void foo(void* arg) {
     std::cout << *a << ' ';
 }
 
-template<typename A>
-void print(const A& x){
+template<typename T>
+void print(const T& x){
      std::cout << x << std::endl;
 
 }
