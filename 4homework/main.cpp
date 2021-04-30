@@ -13,11 +13,11 @@ void print(const A& x){
 }
 
 int main() {
-    std::cout << "begin\n";
+    print("begin");
     ParallelScheduler scheduler(14);
     print("end");
     for(int i = 1; i < 21; ++i) {
-        std::cout << "\nin for loop, from main\n";
+        print("\nin for loop, from main");
         scheduler.run(foo, &i);
     }
     std::cout << std::endl;
