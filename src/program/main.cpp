@@ -1,10 +1,4 @@
 #include "ParallelScheduler.hpp"
-//"../lib/ParallelScheduler.hpp"
-//"../lib/ParallelScheduler.cpp"
-//
-//solved race condition problem with mutex
-//
-
 //make mutex variable
 pthread_mutex_t mutex;
 
@@ -66,34 +60,3 @@ int main() {
     delete[] a;
     delete[] threads; 
 }
-
-/*
-int main() {
-    int res = pthread_mutex_init(&mutex, NULL);
-    if(res != 0) {
-        std::cout << "error " << res << " while using a pthread_mutex_init" << std::endl;
-        exit(res);
-    }   
-
-    //pointer to int, and value is 0
-    int* a = new int(0);
-    std::cout << *a << std::endl;
-    int threadsCount = 44;
-    pthread_t* threads = new pthread_t[threadsCount];
-    //create mutexes
-    for(int i = 0; i < threadsCount; ++i) {
-        int res = pthread_create(&threads[i], NULL, &inc, a);
-        threadCreatingTest(res);
-    }
-    //join mutex
-    for(int i = 0; i < threadsCount; ++i) {
-        pthread_join(threads[i], NULL);
-    }
-
-    std::cout << *a << std::endl;
-
-    pthread_mutex_destroy(&mutex);
-    delete[] a;
-    delete[] threads;
-}
-*/
