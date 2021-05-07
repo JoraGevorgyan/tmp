@@ -1,17 +1,26 @@
 #include "ParallelScheduler.hpp"
 
-void foo(void* arg) {
+void foo(void* arg)
+{
     std::cout << "\nfoo called\n";
-    int* a = (int*)arg;
+    int* a = (int*) arg;
     std::cout << *a << ' ';
 }
 
-int main() {
-    std::cout << "begin\n";
+template<typename T>
+void print(const T& x)
+{
+    std::cout << x << std::endl;
+
+}
+
+int main()
+{
+    print("begin");
     ParallelScheduler scheduler(14);
-    std::cout << "end\n";
-    for(int i = 1; i < 21; ++i) {
-        std::cout << "\nin for loop, from main\n";
+    print("end");
+    for (int i = 1; i<21; ++i) {
+        print("\nin for loop, from main");
         scheduler.run(foo, &i);
     }
     std::cout << std::endl;
